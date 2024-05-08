@@ -237,8 +237,9 @@ void delete(avl_node **rootptr, int *num, int size){
 int main(){
 	avl_node *root = NULL;
 	int i,n=10;
-	int *del;
-	int len;
+	
+	int input[] = {5,7,10,9};
+	int len = sizeof(input)/sizeof(input[0]);
 
 	for(i=0; i<n; i++){
 		insert_value(&root,i+1);
@@ -249,14 +250,7 @@ int main(){
 	view(root,0);
 		printf("\n----------------------------------------\n");
 
-	printf("How many deletions: ");
-	scanf("%d",&len);
-	del = (int*)malloc(sizeof(int)*len);
-	for(int i=0;i<len;i++){
-		printf("Num ");
-		printf("%d: ",i+1);
-		scanf("%d",&(del[i]));
-	}
-	delete(&root,del,len);
-	free(del);
+
+	delete(&root,input,len);
+
 }
